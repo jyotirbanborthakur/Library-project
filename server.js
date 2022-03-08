@@ -22,8 +22,7 @@ Display.prototype.add = function (book) {
 }
 
 
-Display.prototype.validate = function ()
-{}
+
 
 
 
@@ -52,16 +51,8 @@ function sub(e) {
     }
     let book = new Books(bookName, author, type)
     console.log(book)
-    let disp = new Display();
-    disp.validate(book)
-    if (disp.validate(book))
-    {
+    let disp = new Display();  
         disp.add(book)
         disp.clear();
-
-    }
-    else{    
-        console.log("error")
-    }
     e.preventDefault();
 }
