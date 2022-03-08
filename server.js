@@ -22,15 +22,6 @@ Display.prototype.add = function (book) {
 }
 
 
-
-
-
-
-
-
-
-
-
 let libraryForm = document.getElementById('libraryForm')
 libraryForm.addEventListener('submit', sub)
 function sub(e) {
