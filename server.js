@@ -19,6 +19,7 @@ Display.prototype.add = function (book) {
 </tr>`;
     tableBody.innerHTML += ui;
 }
+<<<<<<< HEAD
 Display.prototype.show = function (type, message) {
     let grab = document.getElementById("message")
     grab.innerHTML = `<div class="alert alert-${type} d-flex align-items-center" role="alert" id="alerts">
@@ -42,6 +43,9 @@ Display.prototype.show = function (type, message) {
 //         return true;
 //     }
 // }
+=======
+
+>>>>>>> deb1f1a9b3b49ca83617a0006aaf0179bdb709e0
 
 let libraryForm = document.getElementById('libraryForm')
 libraryForm.addEventListener('submit', sub)
