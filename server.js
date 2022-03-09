@@ -6,9 +6,8 @@ function Books(name, author, type) {
 function Display() {
 
 }
-Display.prototype.clear = function ()
-{
-    let formReset=document.getElementById('libraryForm')
+Display.prototype.clear = function () {
+    let formReset = document.getElementById('libraryForm')
     formReset.reset();
 }
 Display.prototype.add = function (book) {
@@ -20,16 +19,29 @@ Display.prototype.add = function (book) {
 </tr>`;
     tableBody.innerHTML += ui;
 }
-
-
-
-
-
-
-
-
-
-
+Display.prototype.show = function (type, message) {
+    let grab = document.getElementById("message")
+    grab.innerHTML = `<div class="alert alert-${type} d-flex align-items-center" role="alert" id="alerts">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <div id="alert_disp">
+    ${message}
+    </div>
+  </div>`
+    setTimeout(function () {
+        grab.innerHTML = ""
+    }, 2000);
+}
+// Display.prototype.validate = function(book)
+// {
+//     if(book.bookName.length <2 || book.author.length <2)
+//     {
+//         return false
+//     }
+//     else
+//     {
+//         return true;
+//     }
+// }
 
 let libraryForm = document.getElementById('libraryForm')
 libraryForm.addEventListener('submit', sub)
@@ -51,8 +63,16 @@ function sub(e) {
     }
     let book = new Books(bookName, author, type)
     console.log(book)
-    let disp = new Display();  
+    let disp = new Display();
+    if (book.name.length > 2 & book.author.length > 2) {
         disp.add(book)
+        disp.show("success", " <i class='fa fa-check-circle'></i> Done ")
         disp.clear();
+    }
+    else {
+        disp.clear();
+        disp.show("danger", " <i class='fa fa-times-circle'></i>  Enter valid Book name and Author!");
+    }
+
     e.preventDefault();
 }
